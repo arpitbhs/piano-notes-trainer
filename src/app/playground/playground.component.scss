@@ -61,13 +61,25 @@ button {
   height: 300px;
   width: 500px;
   background-color: #101a2a;
+  padding: 10px;
+}
+
+.title-training {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.training-modes {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  height: 60%;
+  width: 100%;
 }
 
 .training-mode {
-  height: 80%;
+  height: 100%;
   width: 40%;
   background-color: white;
   color: #101a2a;
@@ -78,9 +90,7 @@ button {
   border-radius: 5px;
 }
 
-.training-mode:hover{
-  height: 80%;
-  width: 40%;
+.training-mode:hover {
   color: white;
   background-color: #101a2a;
   border: 1px solid white;

@@ -19,12 +19,18 @@
     <div class="pressed-key" *ngIf="showPressedKey" [ngClass]="keyPressClass">{{pressedKey}}</div>
   </div>
   <div class="select-training" *ngIf="showTrainingMode">
-    <div class="training-mode" (click)="onSelectTrainingMode('TIMED')">
-      <span>Timed</span>
+    <div class="title-training">
+      Select your preferred mode of training
     </div>
-    <div class="training-mode" (click)="onSelectTrainingMode('FOREVER')">
-      <span>Forever</span>
+    <div class="training-modes">
+      <div class="training-mode" (click)="onSelectTrainingMode('TIMED')">
+        <span>Timed</span>
+      </div>
+      <div class="training-mode" (click)="onSelectTrainingMode('FOREVER')">
+        <span>Forever</span>
+      </div>
     </div>
+    
   </div>
   <div class="score-board">
     <div class="score-title">Scoreboard</div>

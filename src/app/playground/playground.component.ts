@@ -126,9 +126,17 @@ export class PlaygroundComponent implements OnInit {
     }
   }
 
+  isValidKey(key) {
+    const k = key.toLowerCase();
+    return /[a-g]/.test(key);
+  }
+
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (!this.isTrainingStarted) {
+    if (!this.isTrainingStarted || this.showTrainingMode) {
+      return;
+    }
+    if (!this.isValidKey(event.key)) {
       return;
     }
     clearTimeout(this.currentKeyTimeout);
