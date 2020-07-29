@@ -1,0 +1,87 @@
+.playground {
+  position: relative;
+  width: 90%;
+  margin: 30px auto;
+}
+
+.actions {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  background-color: white;
+
+}
+
+.display-board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.keypress-board {
+  width: 300px;
+  height: 300px;
+}
+
+.pressed-key {
+  font-size: 64px;
+}
+
+.right {
+  color: rgb(128, 233, 133);
+}
+
+.wrong {
+  color: rgb(226, 110, 110);
+}
+
+.score-board {
+  background-color: white;
+  color: #101a2a;
+  width: 300px;
+  height: 300px;
+  align-self: flex-end;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.score-title {
+  color: #101a2a;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.select-training {
+  border: 1px solid white;
+  height: 300px;
+  width: 500px;
+  background-color: #101a2a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.training-mode {
+  height: 80%;
+  width: 40%;
+  background-color: white;
+  color: #101a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.training-mode:hover{
+  height: 80%;
+  width: 40%;
+  color: white;
+  background-color: #101a2a;
+  border: 1px solid white;
+}
