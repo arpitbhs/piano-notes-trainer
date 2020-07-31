@@ -2,40 +2,41 @@
   display: block;
 }
 
+$section-height : 3vh;
+
 .staff-container {
   background-color: white;
   position: relative;
-  height: 180px;
   width: 100%;
-  padding: 50px 0px;
+  padding: $section-height 0px;
 }
 
 .staff-section {
   border: 1px solid black;
-  height: 20px;
+  height: $section-height;
   background-color: white;
 }
 
 .staff-bg-treble {
   position: absolute;
-  height: 80px;
-  width: 80px;
+  height: $section-height*4;
+  width: $section-height*4;
   left: 0;
-  top: 50px;
+  top: $section-height;
   background-image: url('../../assets/treble.svg');
-  background-size: 80px 80px;
+  background-size: $section-height*4 $section-height*4;
   background-position: 0px 0px;
   background-repeat: no-repeat;
 }
 
 .staff-bg-bass {
   position: absolute;
-  height: 80px;
-  width: 80px;
+  height: $section-height*4;
+  width: $section-height*4;
   left: 0;
-  bottom: 50px;
+  bottom: $section-height;
   background-image: url('../../assets/bass.svg');
-  background-size: 80px 80px;
+  background-size: $section-height*4 $section-height*4;
   background-position: 0px 0px;
   background-repeat: no-repeat;
 }

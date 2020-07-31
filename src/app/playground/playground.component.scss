@@ -11,8 +11,7 @@
 button {
   cursor: pointer;
   background-color: white;
-  font-size: 2rem;
-
+  font-size: 3vw;
 }
 
 .display-board {
@@ -21,23 +20,6 @@ button {
   justify-content: space-around;
 }
 
-.keypress-board {
-  width: 300px;
-  height: 300px;
-}
-
-.pressed-key {
-  font-size: 10rem;
-  position: relative;
-}
-
-.right {
-  color: rgb(128, 233, 133);
-}
-
-.wrong {
-  color: rgb(243, 52, 52);
-}
 
 .timer {
   font-size: 10rem;
@@ -47,16 +29,15 @@ button {
 .score-board {
   background-color: white;
   color: #101a2a;
-  width: 300px;
-  height: 300px;
+  width: 35vw;
+  height: 40vh;
   align-self: flex-end;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 3vw;
 }
-
 
 .score-title {
   color: #101a2a;
@@ -64,42 +45,46 @@ button {
   font-size: 2.5rem;
 }
 
-.select-training {
-  border: 1px solid white;
-  height: 300px;
-  width: 500px;
-  background-color: #101a2a;
-  padding: 10px;
-}
 
-.title-training {
-  color: white;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.training-modes {
+.options-board {
+  height: 40vh;
+  width: 30vw;
   display: flex;
-  justify-content: center;
+  overflow: auto;
+  flex-wrap: wrap;
+  font-size: 4vw;
   align-items: center;
-  height: 60%;
-  width: 100%;
+  align-content: center;
+
+  span {
+    background: white;
+    height: 7vh;
+    width: 7vh;
+    color: #101a2a;
+    border-radius: 10%;
+    display: flex;
+    margin: 2px 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  span.right {
+    background: rgb(128, 233, 133);
+  }
+  
+  span.wrong {
+    background: rgb(243, 52, 52);
+  }
 }
 
-.training-mode {
-  height: 100%;
-  width: 40%;
-  background-color: white;
-  color: #101a2a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.training-mode:hover {
+.help {
+  position: fixed;
+  bottom: 0;
+  left: 5px;
+  font-size: 1vw;
   color: white;
-  background-color: #101a2a;
-  border: 1px solid white;
+  font-family: monospace;
+  width: 50%;
+
 }

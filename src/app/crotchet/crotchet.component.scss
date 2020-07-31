@@ -1,10 +1,13 @@
+$section-height: 3vh;
+
 .crotchet {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  left: 250px;
+  height: $section-height * 3;
+  width: $section-height * 3;
+  left: 20vw;
   background-image: url('../../assets/crotchet.svg');
   background-repeat: no-repeat;
+  background-size: $section-height * 3, $section-height * 3;
 }
 
 .hide {
@@ -12,45 +15,45 @@
 }
 
 .treble-c-1 {
-  bottom: 200px;
+  bottom: $section-height*5.5;
 }
 
 .treble-d-1 {
-  bottom: 210px;
+  bottom: $section-height*6;
 }
 
 .treble-e-1 {
-  bottom: 220px;
+  bottom: $section-height*6.5;
 }
 
 .treble-f-1 {
-  bottom: 230px;
+  bottom: $section-height*7;
 }
 
 .treble-g-1 {
-  bottom: 240px;
+  bottom: $section-height*7.5;
 }
 
 .treble-a-1 {
-  bottom: 250px;
+  bottom: $section-height*8;
 }
 
 .treble-b-1 {
-  bottom: 260px;
+  bottom: $section-height*8.5;
 }
 
 .treble-c-2 {
-  bottom: 270px;
+  bottom: $section-height*9;
 }
 
 .treble-d-2 {
-  bottom: 280px;
+  bottom: $section-height*9.5;
 }
 
 .treble-e-2 {
-  bottom: 290px;
+  bottom: $section-height*10;
 }
 
 .treble-f-2 {
-  bottom: 300px;
+  bottom: $section-height*10.5;
 }

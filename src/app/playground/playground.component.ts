@@ -19,17 +19,12 @@ export class PlaygroundComponent implements OnInit {
   currentScore = 0;
   currentStreak = 0;
   total = 0;
-  showPressedKey = false;
-  pressedKey;
-  keyPressClass;
   maxStreak = 0;
   maxScore = 0;
   DEFAULT_SECONDS = 60;
   secondsLeft;
   currentTimer;
   currentKeyTimeout;
-  showTrainingMode = false;
-  trainingMode = 'TIMED';
 
   allNotes = [
     'TREBLE-C-1',
@@ -59,7 +54,17 @@ export class PlaygroundComponent implements OnInit {
     'F'
   ];
 
-  constructor() {}
+  optionValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  options = [];
+
+  constructor() {
+    for (let opt of this.optionValues) {
+      this.options.push({
+        class: '',
+        value: opt.toLowerCase()
+      });
+    }
+  }
 
   ngOnInit() {}
 
@@ -73,27 +78,27 @@ export class PlaygroundComponent implements OnInit {
       this.maxStreak = this.currentStreak;
     }
     this.total++;
-    this.keyPressClass = 'right';
+    let matchedIndex = this.options.findIndex(opt => opt.value === key);
+    this.options[matchedIndex].class = 'right';
 
-    this.pressedKey = key.toUpperCase();
-    this.showPressedKey = true;
     this.playRandomNote();
 
     this.currentKeyTimeout = setTimeout(() => {
-      this.showPressedKey = false;
-    }, 500);
+      this.options[matchedIndex].class = '';
+    }, 1000);
+
+    console.log(this.options);
   }
 
   handleWrong(key) {
     this.currentStreak = 0;
-    this.keyPressClass = 'wrong';
-    this.pressedKey = key.toUpperCase();
-    this.showPressedKey = true;
+    let matchedIndex = this.options.findIndex(opt => opt.value === key);
+    this.options[matchedIndex].class = 'wrong';
     this.total++;
     this.playRandomNote();
     this.currentKeyTimeout = setTimeout(() => {
-      this.showPressedKey = false;
-    }, 500);
+      this.options[matchedIndex].class = '';
+    }, 1000);
   }
 
   publishNote(note) {
@@ -108,6 +113,14 @@ export class PlaygroundComponent implements OnInit {
   playRandomNote() {
     let selectedNoteNumber = Math.floor(Math.random() * 11);
     this.publishNoteNumber(selectedNoteNumber);
+  }
+
+  pressed(opt) {
+    if (this.noteTypes[this.currentNoteNumber].toLowerCase() === opt.toLowerCase()) {
+      this.handleCorrect(opt);
+    } else {
+      this.handleWrong(opt);
+    }
   }
 
   startTraining() {
@@ -147,7 +160,7 @@ export class PlaygroundComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (!this.isTrainingStarted || this.showTrainingMode) {
+    if (!this.isTrainingStarted) {
       return;
     }
     if (!this.isValidKey(event.key)) {

@@ -5,6 +5,7 @@
 </div>
 
 <div class="display-board">
+  <div class="help">Quick Tip : You can also press keys on your computer keyboard/digital keyboard to train!</div>
   <div class="actions">
     <button type="button" (click)="startTraining()" *ngIf="!isTrainingStarted">
       Get started!
@@ -12,13 +13,14 @@
     <button type="button" (click)="restartTraining()" *ngIf="isTrainingStarted">Restart!
     </button>
   </div>
-  <div class="keypress-board">
-    <div class="pressed-key" *ngIf="showPressedKey" [ngClass]="keyPressClass">{{pressedKey}}</div>
+  <div class="options-board" *ngIf="isTrainingStarted">
+    <span *ngFor="let opt of options"
+     (click)="pressed(opt.value)"
+     [ngClass]="opt.class">{{opt.value.toUpperCase()}}</span>
   </div>
-  <div class="timer">{{secondsLeft}}</div>
   <div class="score-board">
-    <!-- <div class="score-title">Scoreboard</div> -->
     <div class="scores">
+      <strong>Time Left: {{secondsLeft}} </strong> <br />
       Score : {{currentScore}} <br />
       Current Streak : {{currentStreak}} <br />
       Max Streak : {{maxStreak}} <br />
