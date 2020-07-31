@@ -1,17 +1,18 @@
 .playground {
   position: relative;
   width: 90%;
-  margin: 30px auto;
+  margin: 10px auto;
 }
 
 .actions {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 button {
   cursor: pointer;
   background-color: white;
-  font-size: 3vw;
+  font-size: 3vh;
 }
 
 .display-board {
@@ -29,8 +30,8 @@ button {
 .score-board {
   background-color: white;
   color: #101a2a;
-  width: 35vw;
-  height: 40vh;
+  width: 45vw;
+  height: 35vh;
   align-self: flex-end;
   text-align: center;
   display: flex;
@@ -47,8 +48,8 @@ button {
 
 
 .options-board {
-  height: 40vh;
-  width: 30vw;
+  height: 35vh;
+  width: 45vw;
   display: flex;
   overflow: auto;
   flex-wrap: wrap;
@@ -82,7 +83,7 @@ button {
   position: fixed;
   bottom: 0;
   left: 5px;
-  font-size: 1vw;
+  font-size: 3vh;
   color: white;
   font-family: monospace;
   width: 50%;

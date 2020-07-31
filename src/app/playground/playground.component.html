@@ -3,17 +3,17 @@
   <app-staff staffType="BASS"></app-staff>
   <app-crotchet [note]="currentNote"></app-crotchet>
 </div>
-
-<div class="display-board">
-  <div class="help">Quick Tip : You can also press keys on your computer keyboard/digital keyboard to train!</div>
-  <div class="actions">
-    <button type="button" (click)="startTraining()" *ngIf="!isTrainingStarted">
-      Get started!
-    </button>
-    <button type="button" (click)="restartTraining()" *ngIf="isTrainingStarted">Restart!
-    </button>
-  </div>
-  <div class="options-board" *ngIf="isTrainingStarted">
+<div class="actions">
+  <button type="button" (click)="startTraining()" *ngIf="!isTrainingStarted">
+    Get started!
+  </button>
+  <button type="button" (click)="restartTraining()" *ngIf="isTrainingStarted">Restart!
+  </button>
+</div>
+<div class="display-board" *ngIf="isTrainingStarted">
+  <!-- <div class="help">Quick Tip : You can also press keys on your computer keyboard/digital keyboard to train!</div> -->
+  
+  <div class="options-board">
     <span *ngFor="let opt of options"
      (click)="pressed(opt.value)"
      [ngClass]="opt.class">{{opt.value.toUpperCase()}}</span>
