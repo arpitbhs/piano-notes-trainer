@@ -111,19 +111,33 @@ export class PlaygroundComponent implements OnInit {
   }
 
   startTraining() {
-    this.isTrainingStarted = true;
-    this.selectTrainingMode();
-  }
+    let timerInterval;
 
-  onSelectTrainingMode(mode) {
-    this.showTrainingMode = false;
-    this.trainingMode = mode;
-    this.playRandomNote();
-    if (this.trainingMode === 'TIMED') {
+    Swal.fire({
+      title: 'Get Ready!!',
+      html: '<div style="font-size:2rem;">Your training will start in <b>3</b> seconds</div>',
+      timer: 3000,
+      timerProgressBar: true,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+        timerInterval = setInterval(() => {
+          const content = Swal.getContent()
+          if (content) {
+            const b = content.querySelector('b')
+            if (b) {
+              b.textContent = Math.floor(Swal.getTimerLeft() / 1000).toString();
+            }
+          }
+        }, 1000)
+      },
+      onClose: () => {
+        clearInterval(timerInterval)
+      }
+    }).then(() => {
+      this.isTrainingStarted = true;
+      this.playRandomNote();
       this.startTimer();
-    } else {
-      this.secondsLeft = '----;';
-    }
+    });
   }
 
   isValidKey(key) {
@@ -152,8 +166,7 @@ export class PlaygroundComponent implements OnInit {
     this.currentScore = 0;
     this.currentStreak = 0;
     clearTimeout(this.currentTimer);
-    this.isTrainingStarted = true;
-    this.selectTrainingMode();
+    this.startTraining();
   }
 
   resetTime() {
@@ -168,11 +181,7 @@ export class PlaygroundComponent implements OnInit {
         clearInterval(this.currentTimer);
         this.announceScore();
       }
-    },1000)
-  }
-
-  selectTrainingMode() {
-    this.showTrainingMode = true;
+    }, 1000)
   }
 
   announceScore() {

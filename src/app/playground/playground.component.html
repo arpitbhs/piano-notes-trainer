@@ -3,44 +3,26 @@
   <app-staff staffType="BASS"></app-staff>
   <app-crotchet [note]="currentNote"></app-crotchet>
 </div>
-<div class="actions">
-  <button type="button" (click)="startTraining()" 
-  *ngIf="!isTrainingStarted">
-  Get started!
-</button>
-  <button type="button"
-   (click)="restartTraining()"
-   *ngIf="isTrainingStarted && !showTrainingMode"
-   >Restart!
-  </button>
-</div>
-<div class="display-board" *ngIf="isTrainingStarted">
+
+<div class="display-board">
+  <div class="actions">
+    <button type="button" (click)="startTraining()" *ngIf="!isTrainingStarted">
+      Get started!
+    </button>
+    <button type="button" (click)="restartTraining()" *ngIf="isTrainingStarted">Restart!
+    </button>
+  </div>
   <div class="keypress-board">
     <div class="pressed-key" *ngIf="showPressedKey" [ngClass]="keyPressClass">{{pressedKey}}</div>
   </div>
-  <div class="select-training" *ngIf="showTrainingMode">
-    <div class="title-training">
-      Select your preferred mode of training
-    </div>
-    <div class="training-modes">
-      <div class="training-mode" (click)="onSelectTrainingMode('TIMED')">
-        <span>Timed</span>
-      </div>
-      <div class="training-mode" (click)="onSelectTrainingMode('FOREVER')">
-        <span>Forever</span>
-      </div>
-    </div>
-    
-  </div>
+  <div class="timer">{{secondsLeft}}</div>
   <div class="score-board">
-    <div class="score-title">Scoreboard</div>
-    <hr/>
+    <!-- <div class="score-title">Scoreboard</div> -->
     <div class="scores">
-      Seconds Left : <strong>{{secondsLeft}}</strong> <br/>
-      Score : {{currentScore}} <br/>
-      Current Streak : {{currentStreak}} <br/>
-      Max Streak : {{maxStreak}} <br/>
-      Max Score : {{maxScore}} <br/>
+      Score : {{currentScore}} <br />
+      Current Streak : {{currentStreak}} <br />
+      Max Streak : {{maxStreak}} <br />
+      Max Score : {{maxScore}} <br />
     </div>
   </div>
 </div>
